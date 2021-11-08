@@ -6,14 +6,15 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/cadastros")
 public class CadastroController {
-    @Autowired
-    private CadastroService cadastroService;
+  @Autowired
+  private CadastroService cadastroService;
 
-    @PutMapping
-    public Cadastro cadastrarCliente (@RequestBody Cadastro cadastro){
-        cadastroService.cadastrarCliente(cadastro);
-        return cadastro;
-    }
+  @PostMapping
+  public void cadastrarCliente(@RequestBody Cadastro cadastro) {
+    cadastroService.cadastrarCliente(cadastro);
+
+
+  }
 
 
 }
