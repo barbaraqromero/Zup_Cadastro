@@ -1,8 +1,9 @@
 package br.com.zup.Cadastros.cadastro;
 
+import br.com.zup.Cadastros.cadastro.execptions.CadastroDuplicadoException;
+import br.com.zup.Cadastros.cadastro.execptions.CadastroNaoExisteException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -42,7 +43,6 @@ public class CadastroService {
     } else {
       throw new CadastroNaoExisteException();
     }
-
 
   }
 
