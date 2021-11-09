@@ -1,7 +1,7 @@
 package br.com.zup.Cadastros.cadastro;
 
-import br.com.zup.Cadastros.cadastro.execptions.CadastroDuplicadoException;
-import br.com.zup.Cadastros.cadastro.execptions.CadastroNaoExisteException;
+import br.com.zup.Cadastros.cadastro.exceptions.CadastroDuplicadoException;
+import br.com.zup.Cadastros.cadastro.exceptions.CadastroNaoExisteException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

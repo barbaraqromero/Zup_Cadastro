@@ -1,6 +1,7 @@
 package br.com.zup.Cadastros.cadastro;
 
-import org.hibernate.validator.constraints.br.CPF;
+import br.com.zup.Cadastros.cadastro.dtos.CadastroDTO;
+import br.com.zup.Cadastros.cadastro.dtos.ResumoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

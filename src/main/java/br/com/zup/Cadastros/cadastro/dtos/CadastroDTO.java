@@ -1,17 +1,27 @@
-package br.com.zup.Cadastros.cadastro;
+package br.com.zup.Cadastros.cadastro.dtos;
 
-import javax.persistence.Column;
-import java.time.LocalDate;
+import org.hibernate.validator.constraints.br.CPF;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+
 
 public class CadastroDTO {
+  @NotBlank
+  @CPF(message = "CPF inválido")
   private String cpf;
+  @NotBlank
   private String nome;
+  @NotBlank
   private String sobrenome;
+  @NotBlank
   private String cidade;
+  @NotBlank
   private String bairro;
+  @NotBlank
   private String nomeDoParenteProximo;
   private boolean moraSozinho;
   private boolean temPet;
+  @Min(1)
   private int idade;
 
   public CadastroDTO() {
