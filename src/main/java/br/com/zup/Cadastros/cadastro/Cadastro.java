@@ -98,10 +98,6 @@ public class Cadastro {
         this.idade = idade;
     }
 
-    public LocalDate getDataDoCadastro() {
-        return dataDoCadastro;
-    }
-
     public void setDataDoCadastro(LocalDate dataDoCadastro) {
         this.dataDoCadastro = dataDoCadastro;
     }
