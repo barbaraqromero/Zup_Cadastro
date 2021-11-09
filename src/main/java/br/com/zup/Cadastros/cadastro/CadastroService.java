@@ -16,7 +16,7 @@ public class CadastroService {
 
   public void cadastrarCliente(Cadastro cadastro) {
     if (cadastroRepository.existsById(cadastro.getCpf())) {
-      throw new CadastroDuplicadoException();
+      throw new CadastroDuplicadoException("CPF já existente!");
     }
     cadastro.setDataDoCadastro(LocalDate.now());
     cadastroRepository.save(cadastro);
@@ -41,7 +41,7 @@ public class CadastroService {
     if (cadastroRepository.existsById(cpf)) {
       cadastroRepository.deleteById(cpf);
     } else {
-      throw new CadastroNaoExisteException();
+      throw new CadastroNaoExisteException("Cadastro inexistente!");
     }
 
   }
@@ -51,6 +51,6 @@ public class CadastroService {
     if (cadastroOptional.isPresent()) {
       return cadastroOptional.get();
     }
-    throw new CadastroNaoExisteException();
+    throw new CadastroNaoExisteException("Cadastro inexistente!");
   }
 }
