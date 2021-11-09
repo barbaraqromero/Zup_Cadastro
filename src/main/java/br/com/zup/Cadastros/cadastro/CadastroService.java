@@ -14,25 +14,13 @@ public class CadastroService {
   private CadastroRepository cadastroRepository;
 
   public void cadastrarCliente(Cadastro cadastro) {
-    Cadastro novoCadastro = new Cadastro();
-    novoCadastro.setCpf(cadastro.getCpf());
-    novoCadastro.setNome(cadastro.getNome());
-    novoCadastro.setSobrenome(cadastro.getSobrenome());
-    novoCadastro.setCidade(cadastro.getCidade());
-    novoCadastro.setBairro(cadastro.getBairro());
-    novoCadastro.setNomeDoParenteProximo(cadastro.getNomeDoParenteProximo());
-    novoCadastro.setMoraSozinho(cadastro.isMoraSozinho());
-    novoCadastro.setTemPet(cadastro.isTemPet());
-    novoCadastro.setIdade(cadastro.getIdade());
-    novoCadastro.setDataDoCadastro(exibirDataAtual());
-    cadastroRepository.save(novoCadastro);
+    if (cadastroRepository.existsById(cadastro.getCpf())){
+      throw new CadastroDuplicadoException();
+    }
+    cadastro.setDataDoCadastro(LocalDate.now());
+    cadastroRepository.save(cadastro);
   }
 
-  public LocalDate exibirDataAtual() {
-    LocalDate dataAtual = LocalDate.now();
-    return dataAtual;
-
-  }
 
   public List<Cadastro> aplicarFiltros(Boolean moraSozinho, Boolean temPet, Integer idade) {
     if (moraSozinho != null) {
