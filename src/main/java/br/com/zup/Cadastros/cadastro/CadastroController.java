@@ -52,7 +52,7 @@ public class CadastroController {
     cadastroService.deletarCadastro(cpf);
   }
 
-  @DeleteMapping("/{cpf}")
+  @GetMapping("/{cpf}")
   public void pesquisarPorID(@PathVariable String cpf){
     cadastroService.pesquisarCadastroPorID(cpf);
   }
