@@ -14,7 +14,7 @@ public class CadastroService {
   private CadastroRepository cadastroRepository;
 
   public void cadastrarCliente(Cadastro cadastro) {
-    if (cadastroRepository.existsById(cadastro.getCpf())){
+    if (cadastroRepository.existsById(cadastro.getCpf())) {
       throw new CadastroDuplicadoException();
     }
     cadastro.setDataDoCadastro(LocalDate.now());
@@ -37,7 +37,12 @@ public class CadastroService {
   }
 
   public void deletarCadastro(String cpf) {
-    cadastroRepository.deleteById(cpf);
+    if (cadastroRepository.existsById(cpf)) {
+      cadastroRepository.deleteById(cpf);
+    } else {
+      throw new CadastroNaoExisteException();
+    }
+
 
   }
 
