@@ -21,8 +21,8 @@ public class CadastroController {
   }
 
   @GetMapping
-  public List<ResumoDTO> aplicarFiltros(@RequestParam(required = false) boolean moraSozinho,
-                                        @RequestParam(required = false) boolean temPet,
+  public List<ResumoDTO> aplicarFiltros(@RequestParam(required = false) Boolean moraSozinho,
+                                        @RequestParam(required = false) Boolean temPet,
                                         @RequestParam(required = false) Integer idade) {
 
     List<ResumoDTO> resumo = new ArrayList<>();

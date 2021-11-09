@@ -32,11 +32,11 @@ public class CadastroService {
 
   }
 
-  public List<Cadastro> aplicarFiltros(boolean moraSozinho, boolean temPet, Integer idade) {
-    if (moraSozinho = true) {
+  public List<Cadastro> aplicarFiltros(Boolean moraSozinho, Boolean temPet, Integer idade) {
+    if (moraSozinho != null) {
       return cadastroRepository.findAllByMoraSozinho(moraSozinho);
     }
-    if (temPet = true) {
+    if (temPet != null) {
       return cadastroRepository.findAllByTemPet(temPet);
     }
     if (idade != null) {
