@@ -2,6 +2,7 @@ package br.com.zup.Cadastros.cadastro;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -44,5 +45,10 @@ public class CadastroService {
     }
     Iterable<Cadastro> cadastros = cadastroRepository.findAll();
     return (List<Cadastro>) cadastros;
+  }
+
+  public void deletarCadastro(String cpf) {
+    cadastroRepository.deleteById(cpf);
+
   }
 }
