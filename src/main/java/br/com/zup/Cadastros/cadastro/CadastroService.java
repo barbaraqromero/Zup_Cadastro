@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CadastroService {
@@ -50,5 +51,13 @@ public class CadastroService {
   public void deletarCadastro(String cpf) {
     cadastroRepository.deleteById(cpf);
 
+  }
+
+  public Cadastro pesquisarCadastroPorID(String cpf) {
+    Optional<Cadastro> cadastroOptional = cadastroRepository.findById(cpf);
+    if (cadastroOptional.isPresent()) {
+      return cadastroOptional.get();
+    }
+    throw new CadastroNaoExisteException();
   }
 }
