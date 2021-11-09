@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Service
 public class CadastroService {
@@ -29,5 +30,19 @@ public class CadastroService {
     LocalDate dataAtual = LocalDate.now();
     return dataAtual;
 
+  }
+
+  public List<Cadastro> aplicarFiltros(boolean moraSozinho, boolean temPet, Integer idade) {
+    if (moraSozinho = true) {
+      return cadastroRepository.findAllByMoraSozinho(moraSozinho);
+    }
+    if (temPet = true) {
+      return cadastroRepository.findAllByTemPet(temPet);
+    }
+    if (idade != null) {
+      return cadastroRepository.findAllByIdade(idade);
+    }
+    Iterable<Cadastro> cadastros = cadastroRepository.findAll();
+    return (List<Cadastro>) cadastros;
   }
 }
